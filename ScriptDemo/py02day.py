@@ -209,4 +209,5 @@ set1.clear()
 set1 = set2.copy()
 
 # pop() 该函数用于随机移除集合，字典或列表中的一个元素
+set1.pop()
 
