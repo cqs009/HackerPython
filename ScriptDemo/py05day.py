@@ -40,3 +40,5 @@ print(dir())
 from testpage import testmodule
 
 print (testmodule.test())
+
+print(testmodule.division(1))

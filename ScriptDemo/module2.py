@@ -6,6 +6,6 @@
 
 def quadrature(num1=0, num2=0):
     '''
-        自定义求和函数：参数为入两个数字
+        自定义求积函数
     '''
     return num1 * num2
