@@ -41,4 +41,5 @@ from testpage import testmodule
 
 print (testmodule.test())
 
-print(testmodule.division(1))
+print(testmodule.division(2))
+
