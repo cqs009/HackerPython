@@ -33,9 +33,22 @@ f.close()
 f = open('testfile.txt','r+')
 print(f.read())
 f.close()
-#
+# 使用 fileno() 返回一个整型的文件描述符，可用于一些底层操作上
+f = open('testfile.txt','rb')
+print(f.fileno())
+f.close()
 
+# 使用 isatty() 判断文件是否连接到一个设备上
+f = open('testfile.txt','r')
+print(f.isatty())
+f.close()
 
+# 使用 next() 返回文件下一行
+f = open('testfile.txt','r')
+print(next(f))
+f.close()
+
+# 使用runcate([size])
 
 
 
