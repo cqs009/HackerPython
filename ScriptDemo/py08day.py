@@ -48,8 +48,13 @@ f = open('testfile.txt','r')
 print(next(f))
 f.close()
 
-# 使用runcate([size])
+# 使用runcate([size]) 将指定字节后的内容删除
 
+f = open('testfile.txt','r+')
+print(f.truncate(10))
+f.flush()
+print(f.read())
+f.close()
 
 
 
