@@ -6,7 +6,76 @@
 
 # 引入 os 和 sys模块
 
-import os,sys
+import os,sys,stat
+
+
+# ==========   目录操作 =============
+
+# 目录枚举
+path = "H:\HackerPython"
+
+# os.chdir() 更改文件目录
+os.chdir(path)
+
+
+# 获取指定路径下的子目录和文件信息详细信息
+def listdirDetail(path):
+        files = os.listdir(path)
+        for name in files:
+                pathinfo = os.path.join(path, name) # path 拼接
+                print("%s 详细信息如下：" %(name)) 
+                print("所有者用户ID：%d" %(os.stat(pathinfo).st_uid)) 
+                print("inode 保护模式：%s" %(os.stat(pathinfo).st_mode))
+                print("inode 节点号：%d" %( os.stat(pathinfo).st_ino))
+                print("大小为：%d 字节" %( os.stat(pathinfo).st_size))
+                print("最后访问时间 %s" %(os.stat(pathinfo).st_atime))
+                print("最后修改时间 %s" %(os.stat(pathinfo).st_mtime))
+                print("\n")
+                
+#listdirDetail(path)
+
+# 判断当前 path 是文件还是目录
+def checkPath(path):
+        files = os.listdir(path)
+        for fileName in files:
+                pathinfo = os.path.join(path, fileName)
+                fileType = os.stat(pathinfo).st_mode
+
+                if stat.S_ISDIR(fileType):
+                        print("%s 是一个目录" %(fileName))
+                elif stat.S_ISREG(fileType):
+                        print("%s 是一个文件" %(fileName))
+                else:
+                        print("%s 是一个未知目录类型" %(fileName))
+
+#checkPath(path)
+
+
+# 遍历多级目录
+retractnum = 0
+def traverseMultistageDir(path,retractnum):
+         paths = os.listdir(path)
+         strs = '       '*retractnum
+         retractnum += 1
+         for pathtime in paths:
+                newpath = os.path.join(path, pathtime)
+                fileType = os.stat(newpath).st_mode
+
+                if stat.S_ISDIR(fileType):
+                        print(strs+"%s" %(pathtime))
+                        
+                        traverseMultistageDir(newpath,retractnum)
+                else:
+                        print(strs+"%s" %(pathtime))
+         
+              
+path = 'H:\HackerPython'
+print("%s" %(path))
+traverseMultistageDir(path, retractnum)
+print("========== 分割线 ==========")
+
+
+
 
 # access(path,mode) 校验目录权限
 # mode有一下几个
@@ -31,11 +100,7 @@ print(ret)
 # os.getcwd() 查看当前的path
 print(os.getcwd())
 
-# os.chdir() 更改文件目录
-os.chdir('testpage')
-print(os.getcwd())
-os.chdir('h:\HackerPython\ScriptDemo')
-print(os.getcwd())
+os.chdir("H:\HackerPython\ScriptDemo")
 
 # os.chmod(path,mode) 更改权限
 # mode部分的参数
