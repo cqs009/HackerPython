@@ -70,13 +70,21 @@ def traverseMultistageDir(path,retractnum):
          
               
 path = 'H:\HackerPython'
-print("%s" %(path))
-traverseMultistageDir(path, retractnum)
+#print("%s" %(path))
+#traverseMultistageDir(path, retractnum)
 print("========== 分割线 ==========")
 
+#使用 filemode函数获取文件的mode信息
 
+def chmodInfo(path):
+        files = os.listdir(path)
+        print('权限          文件名称')
+        for name in files:
+                pathName = os.path.join(path,name)
+                mode = os.stat(pathName).st_mode
+                print('%s    %s' %(stat.filemode(mode),name))
 
-
+chmodInfo('.')
 # access(path,mode) 校验目录权限
 # mode有一下几个
 # os.F_OK: 测试path是否存在
