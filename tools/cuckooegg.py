@@ -48,5 +48,6 @@ def crackPass(dictionary_file,crypt_pass):
     print("[-] Password Not Found. \n")
     return
 
+
 if  __name__ == "__main__":
     main()
