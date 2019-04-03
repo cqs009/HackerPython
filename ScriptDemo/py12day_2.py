@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 # =================================================
 # ==========      TCP 服务端    ====================
@@ -25,7 +25,7 @@ print("[*] LISTENING ON %s:%d" %(server_host, server_port))
 def handle_client(client_socket):
   # 获取客户端发送得内容
   request = client_socket.recv(4096)
-  print("[*] Received: %s" %(request))
+  print("[*] Received: %s" %(request.decode()))
   # 返回一个数据包
   datastr = "OK"
   data = datastr.encode()

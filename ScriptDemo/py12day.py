@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 import socket
 import sys
@@ -36,7 +36,7 @@ client.send(datastr.encode())
 # 接收返回数据
 response = client.recv(4096)
 
-print(response)
+print(response.decode())
 
 client.close()
 
