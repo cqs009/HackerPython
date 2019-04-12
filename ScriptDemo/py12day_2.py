@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/python
 
 # =================================================
 # ==========      TCP 服务端    ====================
@@ -8,7 +8,7 @@ import socket
 import threading
 
 server_host = "0.0.0.0"
-server_port = 9999
+server_port = 8080
 
 # 创建一个socket
 server_address = (server_host, server_port)
