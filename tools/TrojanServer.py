@@ -43,7 +43,7 @@ class TrojanServer:
             s.close() # 关闭服务端
 
     def analyzData(self,tcpSocket,data): # 数据解析函数
-
+        
         try:
             msg=data.decode("utf-8") # 先对数据转码
             if os.path.isfile(msg):  # 如果是文件，则发送文件
