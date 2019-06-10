@@ -26,12 +26,12 @@ def main():
 
         usage = 'Usage : %prog [-i interface] [-t target] host'
         parser=OptionParser(usage)
-        parser.add_option('-i',dest='interface' ,help='请指定网卡')
-        parser.add_option('-t',dest='target' ,help='请指定要欺骗的目标主机')
-        parser.add_option('-m',dest='mode' ,help='毒化模式: requests (req) or replies (rep) [default: %default]')
+        parser.add_option('-i',dest='interface' ,help='请指定网卡',action='store_true')
+        parser.add_option('-t',dest='target' ,help='请指定要欺骗的目标主机',action='store_true')
+        parser.add_option('-m',dest='mode' ,help='毒化模式: requests (req) or replies (rep) [default: %default]',action='store_true')
         parser.add_option('-s', action='store_true', dest='summary', default=False, help='显示数据包发送信息')
         (options, args)= parser.parse_args()
-        if  options.interface is None:
+        if  len(args) != 0 or options.interface is None:
                 parser.print_help()
                 sys.exit(0)
        
